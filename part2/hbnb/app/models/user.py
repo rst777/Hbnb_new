@@ -4,10 +4,10 @@ from datetime import datetime
 import uuid
 
 class User:
-    def __init__(self, email, password, first_name="", last_name=""):
+    def __init__(self, email, first_name="", last_name=""):
         self.id = str(uuid.uuid4())
         self.email = email
-        self.password = password
+        # self.password = password # Assurez-vous de gérer le mot de passe si nécessaire
         self.first_name = first_name
         self.last_name = last_name
         self.created_at = datetime.utcnow()
@@ -26,8 +26,9 @@ class User:
     def validate(self):
         if not self.email or '@' not in self.email:
             raise ValueError("Valid email required")
-        if not self.password or len(self.password) < 6:
-            raise ValueError("Password must be at least 6 characters")
+        # Ajouter la validation du mot de passe si nécessaire
+        # if not self.password or len(self.password) < 6:
+        #    raise ValueError("Password must be at least 6 characters")
 
     def save(self):
         self.updated_at = datetime.utcnow()

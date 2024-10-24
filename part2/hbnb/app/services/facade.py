@@ -4,7 +4,7 @@ HBnB Facade Service
 
 class HBnBFacade:
     """Facade for managing business operations"""
-    
+
     def __init__(self):
         """Initialize storage"""
         self.users = {}
@@ -15,10 +15,14 @@ class HBnBFacade:
     # User operations
     def create_user(self, data):
         from app.models.user import User
+
+        #if 'password' not in data:
+            #raise ValueError("Missing required field: 'password'")
+
         user = User(**data)
         user.validate()
         self.users[user.id] = user
-        return user
+        return user.to_dict()
 
     def get_user(self, user_id):
         return self.users.get(user_id)

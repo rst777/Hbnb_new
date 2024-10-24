@@ -7,7 +7,7 @@ api = Namespace('user', description='User operations')
 
 user_model = api.model('User', {
     'email': fields.String(required=True),
-    'password': fields.String(required=True),
+    #'password': fields.String(required=True),
     'first_name': fields.String(),
     'last_name': fields.String()
 })

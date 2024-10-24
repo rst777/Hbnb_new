@@ -23,10 +23,10 @@ class InMemoryRepository(Generic[T]):
     def add(self, entity: T) -> None:
         """
         Add new entity to storage.
-        
+
         Args:
             entity: Entity to store, must have id attribute
-            
+
         Raises:
             ValueError: If entity with same id already exists
         """
@@ -40,10 +40,10 @@ class InMemoryRepository(Generic[T]):
     def get(self, entity_id: str) -> Optional[T]:
         """
         Retrieve entity by id.
-        
+
         Args:
             entity_id: ID of entity to retrieve
-            
+
         Returns:
             Entity if found, None otherwise
         """
@@ -52,7 +52,7 @@ class InMemoryRepository(Generic[T]):
     def get_all(self) -> List[T]:
         """
         Retrieve all entities.
-        
+
         Returns:
             List of all stored entities
         """
@@ -61,11 +61,11 @@ class InMemoryRepository(Generic[T]):
     def update(self, entity_id: str, entity: T) -> None:
         """
         Update existing entity.
-        
+
         Args:
             entity_id: ID of entity to update
             entity: Updated entity data
-            
+
         Raises:
             ValueError: If entity doesn't exist
         """
@@ -76,10 +76,10 @@ class InMemoryRepository(Generic[T]):
     def delete(self, entity_id: str) -> None:
         """
         Remove entity from storage.
-        
+
         Args:
             entity_id: ID of entity to delete
-            
+
         Raises:
             ValueError: If entity doesn't exist
         """
@@ -90,11 +90,11 @@ class InMemoryRepository(Generic[T]):
     def get_by_attribute(self, attr_name: str, attr_value: any) -> Optional[T]:
         """
         Find first entity matching attribute value.
-        
+
         Args:
             attr_name: Name of attribute to match
             attr_value: Value to match against
-            
+
         Returns:
             Matching entity if found, None otherwise
         """
